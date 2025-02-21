@@ -8,8 +8,9 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
-            color: #333;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
             text-align: center;
             padding: 20px;
             overflow-y: auto;
@@ -19,68 +20,92 @@
         .container {
             max-width: 800px;
             margin: auto;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffdde1, #fcb69f, #a18cd1, #fad0c4);
+            background: rgba(20, 20, 20, 0.9);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 15px rgba(0, 255, 100, 0.3);
             overflow-y: auto;
+        }
+        .welcome {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #00ff99;
         }
         .header {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
             padding: 20px;
+            position: relative;
         }
         .header img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 6px solid #ff758c;
+            border: 6px solid #00ff99;
             cursor: pointer;
             transition: border 0.3s ease-in-out, transform 0.2s ease-in-out;
+            position: absolute;
+            top: 50px;
+            left: 60px;
         }
         .header img:hover {
-            border: 6px solid purple;
+            border: 6px solid #ffcc00;
             transform: scale(1.05);
         }
         .info {
-            text-align: center;
-            margin-top: 15px;
+            text-align: left;
+            margin-left: 300px;
+            padding-top: 20px;
         }
         .info h1 {
-            color: #ff3e6b;
+            color: #00ff99;
             font-family: 'Caveat', cursive;
             font-size: 2.5rem;
+            margin-bottom: 10px;
         }
         .info p {
             font-weight: 600;
             font-size: 1.1rem;
+            margin-bottom: 8px;
         }
-        .achievements-container {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.7);
+        .about-me {
+            text-align: left;
+            margin-top: -30px;
+            margin-left: -280px;
             padding: 10px;
             border-radius: 5px;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            color: #ffcc00;
         }
         .achievements {
             margin-top: 10px;
             padding: 10px;
-            background: #ff758c;
-            color: white;
+            color: #ffcc00;
             border-radius: 5px;
         }
-        .achievements h2 {
+        .achievements button {
+            background: #ff3e6b;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2rem;
             font-family: 'Caveat', cursive;
-            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .achievements button:hover {
+            background: #ffcc00;
+            color: black;
         }
         .achievement-images {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 80px;
         }
         .achievement-images img {
             width: 300px;
@@ -92,25 +117,30 @@
             transition: border 0.3s ease-in-out;
         }
         .achievement-images img:hover {
-            border: 2px solid purple;
-        }
-        .fullscreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        .fullscreen img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
+            border: 2px solid #4906a1;
+            box-shadow: 0px 0px 10px #4906a1;
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+        
+        
+        }       
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
     </style>
     <script>
         function openFullscreen(src) {
@@ -124,10 +154,15 @@
             fullscreenDiv.appendChild(img);
             document.body.appendChild(fullscreenDiv);
         }
+        function toggleAchievements() {
+            const achievements = document.getElementById("achievementList");
+            achievements.style.display = achievements.style.display === "none" ? "flex" : "none";
+        }
     </script>
 </head>
 <body>
     <div class="container">
+        <div class="welcome">🌟 Welcome to My Web Portfolio! 🌟</div>
         <div class="header">
             <img src="profile.jpg" alt="Jake's Photo" onclick="openFullscreen(this.src)">
             <div class="info">
@@ -138,12 +173,15 @@
                 <p>📞 <strong>Contact:</strong> 09396488475</p>
                 <p>💖 <strong>Status:</strong> Single 😏</p>
                 <p>🎓 <strong>Year Level:</strong> 2nd Year BSCS</p>
+                <div class="about-me">
+                    <h2>About Me</h2>
+                    <p>Programming is something I truly love. It can be hard, but I always push myself to learn because it is my dream and passion. I want to be the best I can be, and I won’t stop improving.</p>
+                </div>
             </div>
         </div>
-      
         <div class="achievements">
-            <h2>🏆 Achievements Collected 🎖️</h2>
-            <div class="achievement-images">
+            <button onclick="toggleAchievements()">🏆 Achievements Collected 🎖️</button>
+            <div id="achievementList" class="achievement-images">
                 <img src="certificate.jpg" alt="Achievement 1" onclick="openFullscreen(this.src)">
                 <img src="certificate2.jpg" alt="Achievement 2" onclick="openFullscreen(this.src)">
                 <img src="certificate 3.jpg" alt="Achievement 3" onclick="openFullscreen(this.src)">
