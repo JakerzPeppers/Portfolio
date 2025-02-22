@@ -169,6 +169,37 @@
     margin-left: 15px; 
 }
 
+.skills, .experience, .services {
+    margin-top: 10px;
+    padding: 10px;
+    color: #ffcc00;
+    border-radius: 5px;
+}
+
+.skills button, .experience button, .services button {
+    background: #ff3e6b;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-family: 'Caveat', cursive;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.skills button:hover, .experience button:hover, .services button:hover {
+    background: #ffcc00;
+    color: black;
+}
+
+.toggle-content {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
 
 
     </style>
@@ -188,7 +219,13 @@
             const achievements = document.getElementById("achievementList");
             achievements.style.display = achievements.style.display === "none" ? "flex" : "none";
         }
+        function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.style.display = section.style.display === "none" ? "block" : "none";
+}
+
     </script>
+    
 </head>
 <body>
     <div class="container">
@@ -201,8 +238,8 @@
                 <p>🎂 <strong>Age:</strong> 16</p>
                 <p>📍 <strong>Address:</strong> Davao City, Atchup Boulevard</p>
                 <p>📞 <strong>Contact:</strong> 09396488475</p>
-                <p>💖 <strong>Status:</strong> Single 😏</p>
-                <p>🎓 <strong>Year Level:</strong> 2nd Year BSCS</p>
+                <p>💖 <strong>Status:</strong> Married 💑</p>
+                <p>🎓 <strong>Year Level:</strong> 3rd Year BSCS</p>
             </div>
         </div>
 
@@ -218,7 +255,38 @@
             </div>
         </div>
         
-        
+        <div class="skills">
+            <button onclick="toggleSection('skillsList')">🚀 Skills 🎨</button>
+            <div id="skillsList" class="toggle-content">
+                <p>- 🧠 Advanced Intelligence & Decision-Making </p>
+                <p>- 🏆 Certified Handsomeness & Massive Rizz</p>
+                <p>- 🖥️ Computer Science Expertise</p>
+                <p>- 🤖 Problem Solving & Critical Thinking</p>
+            </div>
+        </div>
+
+        <div class="experience">
+            <button onclick="toggleSection('experienceList')">💼 Experience 📂</button>
+            <div id="experienceList" class="toggle-content">
+                <p>- 👨‍⚕️ Medical Consultation & Diagnosis
+                    Holds a PhD in Doctor and has provided unmatched medical advice with top-tier diagnostic instincts (even if hospitals refuse to acknowledge it 🤔).</p>
+                <p>- 😎 Certified Handsome & Charismatic
+                    Officially recognized as the Most Handsome Man, effortlessly inspiring confidence, style, and jaw-dropping reactions everywhere I go.</p>
+                <p>- 🖥️ Computer Science & Problem-Solving
+                    who has built and optimized applications while applying efficient problem-solving techniques.</p>
+            </div>
+        </div>
+
+        <div class="services">
+            <button onclick="toggleSection('servicesList')">🛠️ Services 💡</button>
+            <div id="servicesList" class="toggle-content">
+                <p>- 🩺 Doctor Advices</p>
+                <p>- 🕶️ Rizz Coaching & Handsomeness Training</p>
+                <p>- 📚 Computer Science Tutoring</p>
+                <p>- 🤖 Tech Consulting & Problem Solving </p>
+            </div>
+        </div>
+
 
         <div class="achievements">
             <button onclick="toggleAchievements()">🏆 Achievements Collected 🎖️</button>
